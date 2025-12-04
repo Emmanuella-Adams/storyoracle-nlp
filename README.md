@@ -47,8 +47,8 @@ Key goals:
 ## **Dataset**
 
 * File: `sample_data/story_samples.csv`
-* Columns: `id`, `text`, `label` (optional)
-* 30–100 paragraphs exported from your own story or curated datasets.
+* Columns: `id`, `text`, `label` etc.
+* 30–100 paragraphs exported from a short fiction made by me.
 * Cleaned, tokenized, and feature-enhanced in `01_data_prep.ipynb`.
 
 ---
@@ -61,7 +61,7 @@ For each paragraph:
 * **Sentence metrics:** average sentence length, number of sentences
 * **Lexical diversity:** unique word ratio
 * **Polarity / Sentiment:** via TextBlob
-* **Optional:** Emotion labels (if available)
+* **Optional:** Emotion labels
 
 ---
 
