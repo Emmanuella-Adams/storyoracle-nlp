@@ -22,7 +22,7 @@ Key goals:
 ## **Repository Structure**
 
 ```
-/story-sensei-nlp
+/storyoracle-nlp
 ├─ README.md
 ├─ requirements.txt
 ├─ notebooks/
