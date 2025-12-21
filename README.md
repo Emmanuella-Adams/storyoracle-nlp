@@ -160,6 +160,8 @@ Paragraph 2: readability Flesch 58.1, FK grade 8.0, avg sentence length 18.2, le
 * [TextBlob](https://textblob.readthedocs.io/) — Sentiment analysis
 * [textstat](https://pypi.org/project/textstat/) — Readability metrics
 * [Scikit-learn](https://scikit-learn.org/) — TF-IDF & Logistic Regression
-* A short fiction, ["The Price Of Dusk"](https://docs.google.com/document/d/15RhUk000TRnKje4bvLSTONcroe-j0fUJ/edit?usp=sharing&ouid=103362831781380974377&rtpof=true&sd=true), written by Emmanuella Adams to extract the data samples.
+* A short fiction, ["The Price Of Dusk"](https://docs.google.com/document/d/15RhUk000TRnKje4bvLSTONcroe-j0fUJ/edit?usp=sharing&ouid=103362831781380974377&rtpof=true&sd=true), written by Me to extract the data samples.
+
+
 
 
