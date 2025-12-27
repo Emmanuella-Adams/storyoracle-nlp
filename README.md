@@ -5,7 +5,7 @@
 
 **Author:** Emmanuella Adams
 
-[View Demo](https://gamma.app/docs/StoryOracle-1k6afraq5up0zlj)
+[View Pitch](https://gamma.app/docs/StoryOracle-1k6afraq5up0zlj)
 ---
 
 ## **Project Overview**
