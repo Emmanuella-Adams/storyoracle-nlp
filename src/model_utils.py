@@ -2,6 +2,7 @@ import os
 import joblib
 import pickle
 import numpy as np
+from collections import Counter
 from sklearn.linear_model import LogisticRegression
 from sklearn.ensemble import RandomForestClassifier
 from sklearn.model_selection import train_test_split, cross_val_score
@@ -14,9 +15,14 @@ def train_baseline(X, y, model_type='logistic_regression', test_size=0.2, random
     """
     Train a classification baseline on text/numerical feature matrix.
     Supports LogisticRegression and RandomForestClassifier.
+    Automatically handles small class counts without failing stratify.
     """
+    counts = Counter(y)
+    min_count = min(counts.values()) if counts else 0
+    use_stratify = y if min_count >= 2 else None
+
     X_train, X_test, y_train, y_test = train_test_split(
-        X, y, test_size=test_size, random_state=random_state, stratify=y if len(np.unique(y)) > 1 else None
+        X, y, test_size=test_size, random_state=random_state, stratify=use_stratify
     )
 
     if model_type == 'random_forest':

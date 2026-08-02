@@ -1,7 +1,12 @@
 import os
 import matplotlib.pyplot as plt
-import seaborn as sns
-from sklearn.metrics import confusion_matrix
+
+# Optional seaborn import with pure matplotlib fallback
+try:
+    import seaborn as sns
+    HAS_SEABORN = True
+except ImportError:
+    HAS_SEABORN = False
 
 # ------------------------------
 # Visualization Utilities
@@ -10,9 +15,24 @@ def plot_confusion_matrix(y_true, y_pred, labels=None, save_path=None):
     """
     Plot and optionally save styled confusion matrix.
     """
+    from sklearn.metrics import confusion_matrix
     cm = confusion_matrix(y_true, y_pred, labels=labels)
     plt.figure(figsize=(8, 6))
-    sns.heatmap(cm, annot=True, fmt='d', cmap='Blues', xticklabels=labels, yticklabels=labels)
+
+    if HAS_SEABORN:
+        sns.heatmap(cm, annot=True, fmt='d', cmap='Blues', xticklabels=labels, yticklabels=labels)
+    else:
+        plt.imshow(cm, interpolation='nearest', cmap=plt.cm.Blues)
+        plt.colorbar()
+        if labels is not None:
+            tick_marks = range(len(labels))
+            plt.xticks(tick_marks, labels, rotation=45)
+            plt.yticks(tick_marks, labels)
+        for i in range(cm.shape[0]):
+            for j in range(cm.shape[1]):
+                plt.text(j, i, str(cm[i, j]), horizontalalignment="center",
+                         color="white" if cm[i, j] > cm.max() / 2. else "black")
+
     plt.xlabel('Predicted Label', fontsize=12)
     plt.ylabel('Actual Label', fontsize=12)
     plt.title('Emotion / Narrative Quality Confusion Matrix', fontsize=14)
@@ -25,7 +45,7 @@ def plot_confusion_matrix(y_true, y_pred, labels=None, save_path=None):
 
 def plot_feature_distributions(df, save_dir=None):
     """
-    Plot histograms and KDE curves for key text metrics.
+    Plot histograms for key text metrics using pure matplotlib/seaborn fallback.
     """
     if save_dir is None:
         save_dir = os.path.join(os.path.dirname(os.path.dirname(__file__)), 'figures')
@@ -34,30 +54,42 @@ def plot_feature_distributions(df, save_dir=None):
 
     # 1. Flesch Reading Ease Distribution
     plt.figure(figsize=(7, 5))
-    sns.histplot(df['flesch'], kde=True, color='teal', bins=15)
+    if HAS_SEABORN:
+        sns.histplot(df['flesch'], kde=True, color='teal', bins=15)
+    else:
+        plt.hist(df['flesch'], bins=15, color='teal', edgecolor='black', alpha=0.7)
     plt.title('Flesch Reading Ease Distribution', fontsize=13)
     plt.xlabel('Flesch Reading Ease Score', fontsize=11)
     plt.ylabel('Paragraph Count', fontsize=11)
+    plt.grid(True, linestyle='--', alpha=0.5)
     plt.tight_layout()
     plt.savefig(os.path.join(save_dir, 'flesch_reading_ease_dist.png'), dpi=300)
     plt.close()
 
     # 2. Average Sentence Length Distribution
     plt.figure(figsize=(7, 5))
-    sns.histplot(df['avg_sent_len'], kde=True, color='coral', bins=15)
+    if HAS_SEABORN:
+        sns.histplot(df['avg_sent_len'], kde=True, color='coral', bins=15)
+    else:
+        plt.hist(df['avg_sent_len'], bins=15, color='coral', edgecolor='black', alpha=0.7)
     plt.title('Average Sentence Length Distribution', fontsize=13)
     plt.xlabel('Words per Sentence', fontsize=11)
     plt.ylabel('Paragraph Count', fontsize=11)
+    plt.grid(True, linestyle='--', alpha=0.5)
     plt.tight_layout()
     plt.savefig(os.path.join(save_dir, 'sentence_length_dist.png'), dpi=300)
     plt.close()
 
     # 3. Lexical Diversity Distribution
     plt.figure(figsize=(7, 5))
-    sns.histplot(df['lexical_div'], kde=True, color='purple', bins=15)
+    if HAS_SEABORN:
+        sns.histplot(df['lexical_div'], kde=True, color='purple', bins=15)
+    else:
+        plt.hist(df['lexical_div'], bins=15, color='purple', edgecolor='black', alpha=0.7)
     plt.title('Lexical Diversity (Type-Token Ratio) Distribution', fontsize=13)
     plt.xlabel('Type-Token Ratio', fontsize=11)
     plt.ylabel('Paragraph Count', fontsize=11)
+    plt.grid(True, linestyle='--', alpha=0.5)
     plt.tight_layout()
     plt.savefig(os.path.join(save_dir, 'lexical_diversity_dist.png'), dpi=300)
     plt.close()
