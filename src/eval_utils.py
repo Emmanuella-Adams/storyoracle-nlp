@@ -23,11 +23,14 @@ def plot_confusion_matrix(y_true, y_pred, labels=None, save_path=None):
         print(f"Confusion matrix saved to {save_path}")
     plt.close()
 
-def plot_feature_distributions(df, save_dir='figures'):
+def plot_feature_distributions(df, save_dir=None):
     """
     Plot histograms and KDE curves for key text metrics.
     """
-    os.makedirs(save_dir, exist_ok=True)
+    if save_dir is None:
+        save_dir = os.path.join(os.path.dirname(os.path.dirname(__file__)), 'figures')
+    
+    os.makedirs(os.path.abspath(save_dir), exist_ok=True)
 
     # 1. Flesch Reading Ease Distribution
     plt.figure(figsize=(7, 5))
@@ -58,6 +61,7 @@ def plot_feature_distributions(df, save_dir='figures'):
     plt.tight_layout()
     plt.savefig(os.path.join(save_dir, 'lexical_diversity_dist.png'), dpi=300)
     plt.close()
+    print(f"Feature distribution plots saved to {save_dir}")
 
 # ------------------------------
 # Paragraph-level Narrative Report
@@ -96,10 +100,12 @@ def generate_narrative_report(df, sample_ids=None):
         
     return report_lines
 
-def save_report(report_lines, path):
+def save_report(report_lines, path=None):
     """
     Save report text lines to file.
     """
+    if path is None:
+        path = os.path.join(os.path.dirname(os.path.dirname(__file__)), 'reports', 'report.txt')
     os.makedirs(os.path.dirname(os.path.abspath(path)), exist_ok=True)
     with open(path, 'w', encoding='utf-8') as f:
         for line in report_lines:
