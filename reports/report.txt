@@ -1,0 +1,58 @@
+==========================================================================
+          STORYORACLE: NARRATIVE QUALITY DIAGNOSTIC REPORT
+==========================================================================
+
+Paragraph 1 [Label: Sadness]:
+  - Readability: Flesch Ease = 89.9, FK Grade Level = 3.0
+  - Sentence Structure: Avg Sentence Length = 10.8 words (Fast-paced & concise)
+  - Lexical Diversity: Unique Word Ratio = 0.71
+  - Emotional Polarity: -0.16 (Negative Tone)
+
+Paragraph 2 [Label: Grief]:
+  - Readability: Flesch Ease = 80.1, FK Grade Level = 5.0
+  - Sentence Structure: Avg Sentence Length = 13.6 words (Fast-paced & concise)
+  - Lexical Diversity: Unique Word Ratio = 0.69
+  - Emotional Polarity: 0.08 (Neutral Tone)
+
+Paragraph 3 [Label: Love]:
+  - Readability: Flesch Ease = 86.8, FK Grade Level = 3.3
+  - Sentence Structure: Avg Sentence Length = 11.2 words (Fast-paced & concise)
+  - Lexical Diversity: Unique Word Ratio = 0.76
+  - Emotional Polarity: 0.32 (Positive Tone)
+
+Paragraph 4 [Label: Nervousness]:
+  - Readability: Flesch Ease = 92.8, FK Grade Level = 3.5
+  - Sentence Structure: Avg Sentence Length = 6.6 words (Fast-paced & concise)
+  - Lexical Diversity: Unique Word Ratio = 0.70
+  - Emotional Polarity: 0.06 (Neutral Tone)
+
+Paragraph 5 [Label: Neutral]:
+  - Readability: Flesch Ease = 85.9, FK Grade Level = 4.4
+  - Sentence Structure: Avg Sentence Length = 14.8 words (Balanced)
+  - Lexical Diversity: Unique Word Ratio = 0.71
+  - Emotional Polarity: 0.28 (Positive Tone)
+
+Paragraph 6 [Label: Annoyance]:
+  - Readability: Flesch Ease = 66.9, FK Grade Level = 7.4
+  - Sentence Structure: Avg Sentence Length = 15.8 words (Balanced)
+  - Lexical Diversity: Unique Word Ratio = 0.71
+  - Emotional Polarity: 0.42 (Positive Tone)
+
+Paragraph 7 [Label: Sadness]:
+  - Readability: Flesch Ease = 89.9, FK Grade Level = 4.2
+  - Sentence Structure: Avg Sentence Length = 16.4 words (Balanced)
+  - Lexical Diversity: Unique Word Ratio = 0.65
+  - Emotional Polarity: 0.26 (Positive Tone)
+
+Paragraph 8 [Label: Neutral]:
+  - Readability: Flesch Ease = 74.7, FK Grade Level = 6.9
+  - Sentence Structure: Avg Sentence Length = 18.0 words (Balanced)
+  - Lexical Diversity: Unique Word Ratio = 0.83
+  - Emotional Polarity: 0.03 (Neutral Tone)
+
+Paragraph 9 [Label: Pride]:
+  - Readability: Flesch Ease = 90.3, FK Grade Level = 3.6
+  - Sentence Structure: Avg Sentence Length = 13.8 words (Fast-paced & concise)
+  - Lexical Diversity: Unique Word Ratio = 0.74
+  - Emotional Polarity: 0.27 (Positive Tone)
+
